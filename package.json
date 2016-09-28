@@ -1,0 +1,22 @@
+{
+  "name": "mongocsv",
+  "version": "1.0.0",
+  "description": "Util for export mongo queries to csv",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongo",
+    "csv",
+    "export",
+    "mongodb",
+    "mongoexport"
+  ],
+  "author": "Juan Carlos Delgado (Carlos Condor)",
+  "license": "ISC",
+  "dependencies": {
+    "csv-stringify": "^1.0.4",
+    "mongoose": "^4.6.1"
+  }
+}
