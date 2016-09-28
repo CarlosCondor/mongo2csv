@@ -1,5 +1,5 @@
 module.exports = {
   mongo: {
-    uri: 'mongodb://localhost/llolloadmin-dev'
+    uri: 'mongodb://localhost/backup28Sept'
   }
 }

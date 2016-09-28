@@ -16,7 +16,10 @@
   "author": "Juan Carlos Delgado (Carlos Condor)",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "csv-stringify": "^1.0.4",
-    "mongoose": "^4.6.1"
+    "moment": "^2.15.1",
+    "mongoose": "^4.6.1",
+    "progress": "^1.1.8"
   }
 }
