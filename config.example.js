@@ -10,9 +10,12 @@ module.exports = {
 
   // Name of collection to perform query
   sourceCollection: 'requests',
-  // Schema to export to csv
+  // Schema to export to csv. (Is a mongoose schema)
   sourceSchema: {
-    vehicle: {}
+    vehicle: {},
+    propertyNumber: Number,
+    dateField: Date,
+    stringField: String
   },
   // Query to perform to mongodb
   query: {
