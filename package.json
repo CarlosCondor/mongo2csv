@@ -1,5 +1,5 @@
 {
-  "name": "mongocsv",
+  "name": "mongo2csv",
   "version": "1.0.0",
   "description": "Util for export mongo queries to csv",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "mongoexport"
   ],
   "author": "Juan Carlos Delgado (Carlos Condor)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bluebird": "^3.4.6",
     "csv-stringify": "^1.0.4",
