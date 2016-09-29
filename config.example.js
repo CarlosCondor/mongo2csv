@@ -5,26 +5,32 @@ module.exports = {
     uri: 'mongodb://localhost/backup28Sept'
   },
 
-  exportFilePath: __dirname + '/the.csv',
+  // Path to export csv
+  exportFilePath: __dirname + '/theExample.csv',
 
+  // Name of collection to perform query
   sourceCollection: 'requests',
+  // Schema to export to csv
   sourceSchema: {
-    vehicle: {},
-    vehicle_kms: Number,
-    pickup_time: Date
+    vehicle: {}
   },
+  // Query to perform to mongodb
   query: {
-    'canceled.status': false,
-    'pickup_time': { $exists: true },
-    'vehicle.licenseplate': { $exists: true }
+    'vehicle.brand': { $exists: true },
   },
+  // Fields to export
   csv: [
     {
+      // Column name
       key: 'Brand',
+      // Fill with collection property
       value: 'vehicle.brand',
+      // Apply map to result
       map: function (v) {
         return v.trim().toUpperCase();
-      }
+      },
+      // Throw error if documment value is blank
+      allowNull: false
     },
     {
       key: 'Model',
@@ -38,26 +44,17 @@ module.exports = {
       key: 'Licenseplate',
       value: 'vehicle.licenseplate',
       map: function (v) {
-        return v.replace(new RegExp("[^0-9a-zA-Z]+"), "").replace(/ /g, "");
+        v.replace(new RegExp("[^0-9a-zA-Z]+"), "").replace(/ /g, "");
       },
       allowNull: true
     },
     {
-      key: 'Kms',
-      value: 'vehicle_kms',
-      allowNull: true
-    },
-    {
-      key: 'Pickup time',
-      value: 'pickup_time',
+      key: 'Full Vehicle Model',
+      value: '$', // <-- $ == root documment
       map: function (v) {
-        return moment(v).format('DD/MM/YYYY');
+        return v.vehicle.brand + ' ' + v.vehicle.model;
       }
-    },
-    {
-      key: 'Own',
-      value: '$',
-      map: function (v) { return v.vehicle.licenseplate; }
     }
+
   ]
 };
